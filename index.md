@@ -25,7 +25,7 @@ Office phone: 207-859-5746
 
 ### Meetings for discussions and labs
 Labs: M, 1—4:00 PM, in Davis 308  
-Discussions: TR, 9:30—10:45 AM, in Miller 205
+Discussions: TR, 11:00 AM—12:15 PM, in Miller 205
 
 ### Office hours
 T: 1–3 PM in Olin 216  
