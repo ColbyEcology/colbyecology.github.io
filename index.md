@@ -1,14 +1,12 @@
 ---
 layout: page
-title: "Welcome to Ecological Modeling (BI382) at Colby College"
+title: "Welcome to Population Modeling (BI382) at Colby College"
 ---
 ### Course description
-Ecological Modelling is a course that is designed to help students learn theory and methods in mathematical and computational ecology. Collectively, these types quantitative approaches are central to the science of ecology for understanding, predicting, and making inferences about ecological patterns and processes. Both classic and contemporary topics will be covered, with an emphasis on using modern tools to analyze and present theory and data.
+Population Modelling is a course that is designed to help students learn theory and methods in mathematical and computational ecology. Collectively, these types quantitative approaches are central to the science of ecology for understanding, predicting, and making inferences about ecological patterns and processes. Both classic and contemporary topics will be covered, with an emphasis on using modern tools to analyze and present theory and data.
 
 * Mathematical aspects of the course will cover traditional theory of simple analytical models.
 * Computational aspects of the course will cover the implementation and analysis of more complex models.
-
-
 
 ### Learning outcomes
 After taking this course as successful student should:

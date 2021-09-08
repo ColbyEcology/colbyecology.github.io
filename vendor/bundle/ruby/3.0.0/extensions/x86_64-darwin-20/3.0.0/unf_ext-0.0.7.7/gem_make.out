@@ -1,0 +1,16 @@
+current directory: /Volumes/GoogleDrive/My Drive/Courses/ColbyEcology.github.io/vendor/bundle/ruby/3.0.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+/usr/local/opt/ruby/bin/ruby -I /usr/local/Cellar/ruby/3.0.2/lib/ruby/3.0.0 -r ./siteconf20210903-57568-s7098f.rb extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: /Volumes/GoogleDrive/My Drive/Courses/ColbyEcology.github.io/vendor/bundle/ruby/3.0.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make DESTDIR\= clean
+
+current directory: /Volumes/GoogleDrive/My Drive/Courses/ColbyEcology.github.io/vendor/bundle/ruby/3.0.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make DESTDIR\=
+compiling unf.cc
+linking shared-object unf_ext.bundle
+
+current directory: /Volumes/GoogleDrive/My Drive/Courses/ColbyEcology.github.io/vendor/bundle/ruby/3.0.0/gems/unf_ext-0.0.7.7/ext/unf_ext
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 unf_ext.bundle ./.gem.20210903-57568-9lhtnb
