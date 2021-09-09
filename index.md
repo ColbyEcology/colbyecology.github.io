@@ -23,14 +23,21 @@ Email: cmmoore
 Office: Olin 216  
 Office phone: 207-859-5746  
 
+### Teaching assistant information
+Joseph Savage  
+Email: jdsava22
+
 ### Meetings for discussions and labs
 Labs: M, 1—4:00 PM, in Davis 308  
 Discussions: TR, 11:00 AM—12:15 PM, in Miller 205
 
 ### Office hours
-T: 1–3 PM in Olin 216  
-R: 7–9 AM in Olin 216  
-F: 1–3 PM at Mary Low Coffeehouse (With the exception of 28 Feb. and 13 March, where the Biology Deptartment seminar is from 1–2 in Olin 01 and Office Hours will be from 2–4 PM.)
+M: 4–5 PM  
+More TBA
+
+### TA hours:
+R: 2–4 PM  
+F: 2–4 PM
 
 ### Text
 * Required: *Population ecology: from first principles*, 2<sup>nd</sup> ed., 2013, by Vandermeer and Goldberg, Princeton University Press  
@@ -97,6 +104,6 @@ To learn more about sexual misconduct or report an incident, visit
 
 <!---
 compiles page to pdf
-pandoc index.md --latex-engine=xelatex -V geometry:margin=1in -o Misc/Syllabus.pdf
+pandoc index.md --pdf-engine=xelatex -V geometry:margin=1in -o Misc/Syllabus.pdf
 --->
-<small><a href="./Misc/Syllabus.pdf" download>Download this page as a .pdf, last updated 21 January 2019</a></small> 
+<small><a href="./Misc/Syllabus.pdf" download>Download this page as a .pdf, last updated 2021 September 08</a></small> 
