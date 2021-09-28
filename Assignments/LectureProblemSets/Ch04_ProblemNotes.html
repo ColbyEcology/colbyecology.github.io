@@ -172,28 +172,40 @@ pre code {
 <p>4.2. None. You should be perplexed by the outcome, though.</p>
 <p>4.3. None.</p>
 <p>4.4. I’ve done this problem for you, without arrows.</p>
-<pre class="r"><code>library(pacakge = &quot;deSolve&quot;)
-PV.disc &lt;- function(t, state, parms) {
-  b &lt;- 1.5
-  K &lt;- 40
-  a &lt;- 0.1
-  c &lt;- 1.5
-  V &lt;- state[&quot;V&quot;]
-  P &lt;- state[&quot;P&quot;]
-  Vt1 &lt;- b*V*((K - V) / K)*exp(-a*P)
-  Pt1 &lt;- c*V*(1 - exp(-a*P))
-  return(list(c(Vt1, Pt1)))
-}
+<pre class="r"><code># Load package deSolve
+    library(package = &quot;deSolve&quot;)
 
-steps.vec &lt;- seq(from = 0, to = 200, by = 1)
-init.Ns &lt;- c(V = 12.18, P = 0.06)
+# Function
+    PV_disc &lt;- function(t, state, parms) {
+        with(as.list(c(state, parms)), {
+          Vt1 &lt;- b*V*((K - V) / K)*exp(-a*P)
+          Pt1 &lt;- c*V*(1 - exp(-a*P))
+          return(list(c(Vt1, Pt1)))
+          })
+    }
 
-odeOut.2.14 &lt;- ode(y = init.Ns, times = steps.vec, func = PV.disc, parms = NA, method = &quot;iteration&quot;)
+# Paramters
+    parm_vec &lt;- c(b = 1.5, K = 40, a = 0.1, c = 1.5)
 
-plot(x = steps.vec, y = odeOut.2.14[,2], type = &quot;l&quot;, col = &quot;blue&quot;, ylab = &quot;Step&quot;, xlab = &quot;Abundance&quot;, ylim = c(0, max(odeOut.2.14[,2:3])), las = 1)
-lines(x = steps.vec, y = odeOut.2.14[,3], col = &quot;red&quot;)
+# Simualtion conditions
+    steps_vec &lt;- seq(from = 0, to = 200, by = 1)
+    init_Ns &lt;- c(V = 12.18, P = 0.06)
 
-plot(x = odeOut.2.14[,2], y = odeOut.2.14[,3], type = &quot;l&quot;, xlab = &quot;Prey abundance&quot;, ylab = &quot;Predator abundance&quot;, las = 1)</code></pre>
+# Simulation (discrete time, so method = iteration)
+    odeOut_2.14 &lt;- ode(y = init_Ns, times = steps_vec, func = PV_disc, parms = parm_vec, method = &quot;iteration&quot;)
+
+# Plot results
+    par(mfrow = c(1, 2), mar = c(4.5, 4.5, 0.5, 0.5))
+
+    # Time series
+    plot(x = steps_vec, y = odeOut_2.14[,2], type = &quot;l&quot;, col = &quot;blue&quot;, xlab = &quot;Step&quot;, ylab = &quot;Abundance&quot;, ylim = c(0, max(odeOut_2.14[,2:3])), las = 1)
+        points(x = steps_vec, y = odeOut_2.14[,2], pch = 16, col = &quot;blue&quot;, cex = 0.5)
+    lines(x = steps_vec, y = odeOut_2.14[,3], col = &quot;red&quot;)
+        points(x = steps_vec, y = odeOut_2.14[,3], pch = 16, col = &quot;red&quot;, cex = 0.5)
+
+    # State space
+    plot(x = odeOut_2.14[,2], y = odeOut_2.14[,3], type = &quot;l&quot;, xlab = &quot;Prey abundance&quot;, ylab = &quot;Predator abundance&quot;, las = 1)
+        points(x = odeOut_2.14[,2], y = odeOut_2.14[,3], pch = 16, col = &quot;black&quot;, cex = 0.5)</code></pre>
 <p>4.5. Same as 4.4, but change the formula and parameter values. For initial conditions, use densities of <code>init.Ns &lt;- c(V = 1.996, P = 0.125)</code></p>
 
 
