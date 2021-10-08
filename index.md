@@ -32,8 +32,8 @@ Labs: M, 1—4:00 PM, in Davis 308
 Discussions: TR, 11:00 AM—12:15 PM, in Miller 205
 
 ### Office hours
-M: 4–5 PM  
-More TBA
+M: 4–5 PM   
+R: 3–5 PM  
 
 ### TA hours:
 R: 2–4 PM  
