@@ -170,7 +170,11 @@ pre code {
 
 <p>9.1. By derive conditions, find and write a mathematical expression. As a hint, look at a graph of the nullclines and intuit it.</p>
 <p>9.2. None.</p>
-<p>9.5. The equation you want to use is the one on page 163, but substitute state variables of victim, <span class="math inline">\(V\)</span>, and predator, <span class="math inline">\(P\)</span>, for the two mutualist species in each equation. Figure 6.5 shows the shape of this saturating, Type II functional response.</p>
+<p>9.5. <del>The equation you want to use is the one on page 163, but substitute state variables of victim, <span class="math inline">\(V\)</span>, and predator, <span class="math inline">\(P\)</span>, for the two mutualist species in each equation. Figure 6.5 shows the shape of this saturating, Type II functional response.</del> Please use this equation:</p>
+<p><span class="math display">\[
+\frac{\mathrm{d}N_1}{\mathrm{d}t} = r_1N_1\left(\frac{K_1 - N_1 - \frac{\alpha _{12}N_2}{h_{12} + N_2}}{K_1}\right) \\
+\frac{\mathrm{d}N_2}{\mathrm{d}t} = r_2N_2\left(\frac{K_2 - N_2 - \frac{\alpha _{21}N_1}{h_{21} + N_1}}{K_2}\right)
+\]</span></p>
 <p>9.6. None.</p>
 <p>9.7. None.</p>
 <p>9.X. Recreate figure 9.7. If you want to add multiple subplots, before your plot, adjust the graphical parameter settings, <code>par()</code>, by giving the <code>mfrow =</code> argument a vector with the number of rows followed by the number of columns. For example, <code>par(mfrow = c(4, 2))</code> would allow you to make a plot with 4 rows and 2 columns. If you want to adjust the margins around each subplot, then you can use the <code>mar =</code> argument, giving it a 4-element vector, corresponding to the amount of white space respectively on the bottom, left, top, and right parts of the graph. The default I woul use is <code>c(4.5, 4.5, 0.5, 0.5)</code>; meaning for this example I might write something like: <code>par(mfrow = c(4, 2) ,c(4.5, 4.5, 0.5, 0.5))</code>.</p>
