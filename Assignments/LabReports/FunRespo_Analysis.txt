@@ -1,0 +1,47 @@
+---
+title: "Functional Response Lab"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Read in data
+
+```{r}
+data_dir <- "/home/cmmoore/FunRespLab/FRDat.csv"
+dat <- read.csv(file = data_dir, stringsAsFactors = F)
+```
+
+# Data clean up
+
+```{r}
+dat$X <- NULL
+colnames(dat) <- c("ind", "prey", "dens", "cons")
+
+na_rows <- which(is.na(dat), arr.ind = T)
+dat <- dat[-na_rows[1,1],]
+
+dat$prey[which(dat$prey == "sandpaper ")] <- "sandpaper"
+dat$prey[which(dat$prey == "peanut")] <- "peanuts"
+dat$prey[which(dat$prey == "Peanuts")] <- "peanuts"
+dat$prey[which(dat$prey == "Sandpaper")] <- "sandpaper"
+```
+
+# Differences in prey functional responses
+
+```{r}
+sand_ind <- which(dat$prey == "sandpaper")
+pea_ind <- which(dat$prey == "peanuts")
+
+x_lims <- c(0, max(dat$dens))
+y_lims <- c(0, max(dat$cons))
+
+par(mfrow = c(1, 2), mar = c(4.5, 4.5, 2, 0.5))
+
+plot(x = dat$dens[sand_ind], y = dat$cons[sand_ind], las = 1, xlab = "Prey density", ylab = "Prey consumed", xlim = x_lims, ylim = y_lims, main = "Sandpapah", col = "#FF000099", pch = 16)
+
+plot(x = dat$dens[pea_ind], y = dat$cons[pea_ind], las = 1, xlab = "Prey density", ylab = "Prey consumed", xlim = x_lims, ylim = y_lims, main = "Peanuts", col = "#0000FF99", pch = 16)
+
+```
