@@ -1,0 +1,570 @@
+---
+title: "Predator-prey (consumer-resource) interactions"
+author: "Christopher Moore"
+date: "Week 09 continued to Week 10"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "https://platform.twitter.com/widgets.js"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, collapse = T)
+library(package = "deSolve")
+library(package = "phaseR")
+library(package = "animation")
+```
+
+
+class: inverse, center, middle
+
+![Leopard seal 1](https://i.vimeocdn.com/video/562538814-12d6ad902d8f4d688234cccc01aa6de84182661bf6518d81aa991945ea7b1bde-d?mw=1100&mh=619&q=70)
+
+# Predator-prey (consumer-resource) interactions
+
+---
+
+class: inverse, center, middle
+
+![Leopard seal 2](https://cdn.roaring.earth/wp-content/uploads/2016/05/CATERS_Friendly_Leopard_Seal_06-1152x768.jpg)
+
+---
+
+class: inverse, center, middle
+
+![Leopard seal 3](https://media.npr.org/assets/img/2017/06/06/leopard-seal-0012-7f54636843d529c8254527536f94c54dfa213d52-s800-c85.jpg)
+
+[Link to interview about this shoot](https://www.youtube.com/watch?v=UmVWGvO8Yhk)
+
+---
+
+# Lotka-Volterra predator-prey
+Putting the pieces together:
+1. Prey growth, $+rR$
+2. Predators removing prey, $-aRC$
+3. Predator growth from eating prey, $+bRC$
+4. Predators die, $-mC$
+
+$$\begin{aligned}
+\frac{dR}{dt} &= rR - aRC \\
+\frac{dC}{dt} &= bRC - mC
+\end{aligned}$$
+
+---
+# Lotka-Volterra predator-prey
+The model
+$$\begin{aligned}
+F_1 = \frac{dR}{dt} &= rR - a RC\\
+F_2 = \frac{dC}{dt} &= b RC - m C
+\end{aligned}$$
+
+--
+
+Setting each subequation to 0
+$$\begin{aligned}
+F_1 = 0 &= rR - a RC\\
+F_2 = 0 &= b RC - m C
+\end{aligned}$$
+
+--
+
+.pull-left[
+For $F_1$
+$$\begin{aligned}
+R^* &= 0 \\
+C^* &= \frac{r}{a}
+\end{aligned}$$
+]
+
+--
+
+.pull-right[
+For $F_2$
+$$\begin{aligned}
+C^* &= 0 \\
+R^* &= \frac{m}{b}
+\end{aligned}$$
+]
+
+
+---
+# Lotka-Volterra predator-prey
+The phase plane
+
+```{r echo = F, warning = F, fig.width = 4, fig.height = 4, dpi = 110, message = F, results = 'hide'}
+LV <- function(t, y, parameters) {
+  R <- y[1]
+  C <- y[2]
+  r <- parameters[1]
+  a <- parameters[2]
+  b <- parameters[3]
+  m <- parameters[4]
+  dR <- r*R - a*R*C
+  dC <- b*R*C - m*C
+  return(list(c(dR, dC)))
+}
+
+init <- c(0.3, 0.5)
+parm.vals <- c(r = 0.5, a = 0.5, b = 0.25, m = 0.5)
+par(mar = c(0, 0, 0.1, 0.1), oma = c(4, 4, 0, 0))
+flowField(deriv = LV, xlim = c(-0.01, 7), ylim = c(-0.01, 7), parameters = parm.vals, y = init, add = F, points = 20, las = 1, xaxs = "i", yaxs = "i")
+nullclines(deriv = LV, parameters = parm.vals, xlim = c(-0.01, 7), ylim = c(-0.01, 7), add = T, lwd = 2, col = c("red", "blue"), add.legend = F)
+mtext(side = 1, text = bquote(R), line = 2.5)
+mtext(side = 2, text = bquote(C), line = 2.5, las = 1)
+```
+
+---
+# Lotka-Volterra predator-prey
+An instance
+
+```{r LV, echo = F, message = FALSE, eval = F}
+times <- seq(from = 0, to = 60, by = 0.1)
+init <- c(0.3, 0.5)
+crLV.out <- ode(y = init, fun = LV, parms = parm.vals, times = times)
+
+saveVideo({
+  time.seq <- times
+  n.frames <- length(time.seq)
+  total.time = 15
+  ani.options(interval = total.time/n.frames, nmax = n.frames)
+
+  for (i in 1:n.frames) {
+  par(mar = c(4.5, 4.5, 0.2, 0.2), oma = rep(0, 4), mfrow = c(1, 2))
+  plot(x = crLV.out[1:i,1], y = crLV.out[1:i,2], lwd = 2, las = 1, xlab = "Time", ylab = "Density", type = "l", ylim = c(0, max(crLV.out[,c(2,3)])), xlim = c(0, max(crLV.out[,1])), col = "blue")
+  lines(x = crLV.out[1:i,1], y= crLV.out[1:i,3], lwd = 2, col = "red")
+flowField(deriv = LV, xlim = c(-0.01, 7), ylim = c(-0.01, 7), parameters = parm.vals, y = init, add = F, points = 20, las = 1, xaxs = "i", yaxs = "i", col.lab = "white")
+  nullclines(deriv = LV, parameters = parm.vals, xlim = c(-0.01, 7), ylim = c(-0.01, 7), add = T, lwd = 2, col = c("blue", "red"), add.legend = F)
+points(x = crLV.out[i,2], y = crLV.out[i,3], pch = 16, cex = 1.5)
+lines(x = crLV.out[1:i,2], y = crLV.out[1:i,3], lwd = 2)
+mtext(side = 1, text = bquote(R), line = 2.5)
+mtext(side = 2, text = bquote(C), line = 2.5, las = 1)
+  }
+
+  }, video.name = "Wk10_PredatorPreyCont_files/LV.mp4", ani.width = 800, ani.height = 400, ani.dev = function(...){png(res=100,...)}
+)
+```
+
+<video width="800" height="400" controls loop>
+  <source src="Wk10_PredatorPreyCont_files/LV.mp4" type="video/mp4">
+</video>
+
+---
+
+# Some motivation from Twitter
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">When students understand state space<br>the world is their oyster. <a href="https://t.co/AdydEUa0GW">https://t.co/AdydEUa0GW</a></p>&mdash; Mike Kaspari (@MikeKaspari) <a href="https://twitter.com/MikeKaspari/status/1115431411048165376?ref_src=twsrc%5Etfw">April 9, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+---
+# Lotka-Volterra with density dependence
+Putting the pieces together:
+1. Prey density-dependent growth, $+rR\frac{K-R}{K}$
+2. Predators removing prey, $-aRC$
+3. Predator growth from eating prey, $+bRC$
+4. Predators die, $-mC$
+
+$$\begin{aligned}
+\frac{dR}{dt} &= rR\left(\frac{K - R}{K}\right) - aRC\\
+\frac{dC}{dt} &= b RC - mC
+\end{aligned}$$
+
+---
+
+# Lotka-Volterra with density dependence
+
+$$\begin{aligned}
+F_1 = \frac{dR}{dt} &= rR\left(\frac{K - R}{K}\right) - aRC\\
+F_2 = \frac{dC}{dt} &= b RC - mC
+\end{aligned}$$
+
+--
+
+Setting each subequation to 0
+$$\begin{aligned}
+F_1 = 0 &= rR\left(\frac{K - R}{K}\right) - aRC\\
+F_2 = 0 &= b RC - mC
+\end{aligned}$$
+
+--
+
+.pull-left[
+For $F_1$
+$$\begin{aligned}
+R^* &= 0 \\
+C &= \frac{r}{a} - \frac{r}{aK}R^*
+\end{aligned}$$
+]
+
+--
+
+.pull-right[
+For $F_2$
+$$\begin{aligned}
+C^* &= 0 \\
+R^* &= \frac{m}{b}
+\end{aligned}$$
+]
+
+
+---
+# Lotka-Volterra with density dependence
+
+The model, initial densities, and parameter values
+```{r}
+LVDD <- function(t, y, parameters) {
+  R <- y[1]
+  C <- y[2]
+  r <- parameters[1]
+  alpha <- parameters[2]
+  a <- parameters[3]
+  b <- parameters[4]
+  m <- parameters[5]
+  K <- parameters[5]
+  dR <- r*R*((K - R)/K) - a*R*C
+  dC <- b*R*C - m*C
+  return(list(c(dR, dC)))
+}
+
+init <- c(0.3, 0.5)
+parm.vals <- c(r = 0.5, a = 0.25, b = 0.25, m = 2, K = 2.5)
+```
+
+---
+# Lotka-Volterra with density dependence
+
+The phase plane
+```{r echo = F, warning = F, fig.width = 4, fig.height = 4, dpi = 110, message = F, results = 'hide'}
+par(mar = c(0, 0, 0.1, 0.1), oma = c(4, 4, 0, 0))
+a <- flowField(deriv = LVDD, xlim = c(-0.01, 3), ylim = c(-0.01, 3), parameters = parm.vals, y = init, add = F, points = 20, las = 1, xaxs = "i", yaxs = "i")
+a <- nullclines(deriv = LVDD, parameters = parm.vals, xlim = c(-0.01, 3), ylim = c(-0.01, 3), add = T, lwd = 2, col = c("red", "blue"), add.legend = F)
+mtext(side = 1, text = bquote(R), line = 2.5)
+mtext(side = 2, text = bquote(C), line = 2.5, las = 1)
+```
+
+---
+# Lotka-Volterra with density dependence
+
+```{r LVDD, echo = F, message = FALSE, eval = F}
+times <- seq(from = 0, to = 30, by = 0.1)
+init <- c(0.5, 0.5)
+LVDD.out <- ode(y = init, fun = LVDD, parms = parm.vals, times = times)
+
+saveVideo({
+  time.seq <- times
+  n.frames <- length(time.seq)
+  total.time = 15
+  ani.options(interval = total.time/n.frames, nmax = n.frames)
+
+  for (i in 1:n.frames) {
+  par(mar = c(4.5, 4.5, 0.2, 0.2), oma = rep(0, 4), mfrow = c(1, 2))
+  plot(x = LVDD.out[1:i,1], y = LVDD.out[1:i,2], lwd = 2, las = 1, xlab = "Time", ylab = "Density", type = "l", ylim = c(0, max(LVDD.out[,c(2,3)])), xlim = c(0, max(LVDD.out[,1])), col = "#0000FFFF")
+  lines(x = LVDD.out[1:i,1], y= LVDD.out[1:i,3], lwd = 2, col = "red")
+a <- flowField(deriv = LVDD, xlim = c(-0.01, 3), ylim = c(-0.01, 3), parameters = parm.vals, y = init, add = F, points = 20, las = 1, xaxs = "i", yaxs = "i", col.lab = "white")
+a <- nullclines(deriv = LVDD, parameters = parm.vals, xlim = c(-0.01, 3), ylim = c(-0.01, 3), add = T, lwd = 2, col = c("red", "blue"), add.legend = F)
+points(x = LVDD.out[i,2], y = LVDD.out[i,3], pch = 16, cex = 1.5)
+lines(x = LVDD.out[1:i,2], y = LVDD.out[1:i,3], lwd = 2)
+mtext(side = 1, text = bquote(R), line = 2.5)
+mtext(side = 2, text = bquote(C), line = 2.5, las = 1)
+  }
+
+  }, video.name = "Wk10_PredatorPreyCont_files/LVDD.mp4", ani.width = 800, ani.height = 400, ani.dev = function(...){png(res=100,...)}
+)
+```
+
+<video width="800" height="400" controls loop>
+  <source src="Wk10_PredatorPreyCont_files/LVDD.mp4" type="video/mp4">
+</video>
+
+---
+
+# Lotka-Volterra with Type II functional response (FR)
+Putting the pieces together:
+1. Prey growth, $+rR$
+2. Predators removing prey, $-\frac{cR}{g + R}C$
+3. Predator growth from eating prey, $+\frac{bR}{g + R}C$
+4. Predators die, $-mC$
+
+$$\begin{aligned}
+\frac{dR}{dt} &= rR - \frac{cR}{g + R}C\\
+\frac{dC}{dt} &= \frac{bR}{g + R}C - mC
+\end{aligned}$$
+
+---
+
+# Lotka-Volterra with Type II FR
+
+$$\begin{aligned}
+F_1 = \frac{dR}{dt} &= rR - \frac{cR}{g + R}C\\
+F_2 = \frac{dC}{dt} &= \frac{bR}{g + R}C - mC
+\end{aligned}$$
+
+--
+
+Setting each subequation to 0
+
+$$\begin{aligned}
+F_1 = 0 &= rR - \frac{cR}{g + R}C\\
+F_2 = 0 &= \frac{bR}{g + R}C - mC
+\end{aligned}$$
+
+--
+
+.pull-left[
+For $F_1$
+$$\begin{aligned}
+R^* &= 0 \\
+C &= \frac{rg}{c} + \frac{r}{c}R
+\end{aligned}$$
+]
+
+--
+
+.pull-right[
+For $F_2$
+$$\begin{aligned}
+C^* &= 0 \\
+R^* &= \frac{mg}{b - m}
+\end{aligned}$$
+]
+
+
+---
+# Lotka-Volterra with Type II FR
+
+The model, initial densities, and parameter values
+```{r}
+LVFR <- function(t, y, parameters) {
+  R <- y[1]
+  C <- y[2]
+  r <- parameters[1]
+  a <- parameters[2]
+  b <- parameters[3]
+  m <- parameters[4]
+  c <- parameters[5]
+  g <- parameters[6]
+  dR <- r*R - c*R*C/(g + R)
+  dC <- b*R*C/(g + R) - m*C
+  return(list(c(dR, dC)))
+}
+
+init <- c(0.3, 0.5)
+parm.vals <- c(r = 0.1, a = 0.25, b = 1.5, m = 0.75, c = 0.5, g = 1)
+```
+
+---
+# Lotka-Volterra with Type II FR
+
+The phase plane
+```{r echo = F, warning = F, fig.width = 4, fig.height = 4, dpi = 110, message = F, results = 'hide'}
+par(mar = c(0, 0, 0.1, 0.1), oma = c(4, 4, 0, 0))
+a <- flowField(deriv = LVFR, xlim = c(-0.01, 3), ylim = c(-0.01, 3), parameters = parm.vals, y = init, add = F, points = 20, las = 1, xaxs = "i", yaxs = "i")
+a <- nullclines(deriv = LVFR, parameters = parm.vals, xlim = c(-0.01, 3), ylim = c(-0.01, 3), add = T, lwd = 2, col = c("red", "blue"), add.legend = F)
+mtext(side = 1, text = bquote(R), line = 2.5)
+mtext(side = 2, text = bquote(C), line = 2.5, las = 1)
+```
+
+---
+# Lotka-Volterra with Type II FR
+
+```{r LVFR, echo = F, message = FALSE, eval = F}
+times <- seq(from = 0, to = 100, by = 0.1)
+init <- c(1, 0.51)
+LVFR.out <- ode(y = init, fun = LVFR, parms = parm.vals, times = times)
+
+saveVideo({
+  time.seq <- times
+  n.frames <- length(time.seq)
+  total.time = 15
+  ani.options(interval = total.time/n.frames, nmax = n.frames)
+
+  for (i in 1:n.frames) {
+  par(mar = c(4.5, 4.5, 0.2, 0.2), oma = rep(0, 4), mfrow = c(1, 2))
+  plot(x = LVFR.out[1:i,1], y = LVFR.out[1:i,2], lwd = 2, las = 1, xlab = "Time", ylab = "Density", type = "l", ylim = c(0, max(LVFR.out[,c(2,3)])), xlim = c(0, max(LVFR.out[,1])), col = "#0000FFFF")
+  lines(x = LVFR.out[1:i,1], y = LVFR.out[1:i,3], lwd = 2, col = "red")
+a <- flowField(deriv = LVFR, xlim = c(-0.01, 3), ylim = c(-0.01, 3), parameters = parm.vals, y = init, add = F, points = 20, las = 1, xaxs = "i", yaxs = "i", col.lab = "white")
+a <- nullclines(deriv = LVFR, parameters = parm.vals, xlim = c(-0.01, 3), ylim = c(-0.01, 3), add = T, lwd = 2, col = c("red", "blue"), add.legend = F)
+points(x = LVFR.out[i,2], y = LVFR.out[i,3], pch = 16, cex = 1.5)
+lines(x = LVFR.out[1:i,2], y = LVFR.out[1:i,3], lwd = 2)
+mtext(side = 1, text = bquote(R), line = 2.5)
+mtext(side = 2, text = bquote(C), line = 2.5, las = 1)
+  }
+
+  }, video.name = "Wk10_PredatorPreyCont_files/LVFR.mp4", ani.width = 800, ani.height = 400, ani.dev = function(...){png(res=100,...)}
+)
+```
+
+<video width="800" height="400" controls loop>
+  <source src="Wk10_PredatorPreyCont_files/LVFR.mp4" type="video/mp4">
+</video>
+
+---
+# Lotka-Volterra with Type II functional response (FR) & Density Dependence (DD)
+Putting the pieces together:
+1. Prey density-dependent growth, $+rR\left(\frac{K - R}{K}\right)$
+2. Predators removing prey, $-\frac{cR}{g + R}C$
+3. Predator growth from eating prey, $+\frac{bR}{g + R}C$
+4. Predators die, $-mC$
+
+$$\begin{aligned}
+\frac{dR}{dt} &= rR\left(\frac{K - R}{K}\right) - \frac{cR}{g + R}C\\
+\frac{dC}{dt} &= \frac{bR}{g + R}C - mC
+\end{aligned}$$
+
+---
+
+# Lotka-Volterra with FR & DD
+
+$$\begin{aligned}
+F_1 = \frac{dR}{dt} &= rR\left(\frac{K - R}{K}\right) - \frac{cR}{g + R}C\\
+F_2 = \frac{dC}{dt} &= \frac{bR}{g + R}C - mC
+\end{aligned}$$
+
+--
+
+Setting each subequation to 0
+
+$$\begin{aligned}
+F_1 = 0 &= rR\left(\frac{K - R}{K}\right) - \frac{cR}{g + R}C\\
+F_2 = 0 &= \frac{bR}{g + R}C - mC
+\end{aligned}$$
+
+--
+
+.pull-left[
+For $F_1$
+$$\begin{aligned}
+R^* &= 0 \\
+C &= \frac{r\left(1 - \frac{R}{K}\right)(g + R)}{c}
+\end{aligned}$$
+]
+
+--
+
+.pull-right[
+For $F_2$
+$$\begin{aligned}
+C^* &= 0 \\
+R^* &= \frac{mg}{b - m}
+\end{aligned}$$
+]
+
+
+---
+
+# Lotka-Volterra with FR & DD
+
+The model, initial densities, and parameter values
+```{r}
+LVFRDD <- function(t, y, parameters) {
+  R <- y[1]
+  C <- y[2]
+  r <- parameters["r"]
+  a <- parameters["a"]
+  b <- parameters["b"]
+  m <- parameters["m"]
+  c <- parameters["c"]
+  g <- parameters["g"]
+  K <- parameters["K"]
+  dR <- r*R*((K - R) /K) - c*R*C/(g + R)
+  dC <- b*R*C/(g + R) - m*C
+  return(list(c(dR, dC)))
+}
+
+init <- c(0.3, 0.5)
+parm.vals <- c(r = 0.5, a = 0.25, b = 1.5, m = 0.75, c = 0.5, g = 1, K = 2.5)
+```
+
+---
+# Lotka-Volterra with FR & DD
+
+The phase plane
+```{r echo = F, warning = F, fig.width = 4, fig.height = 4, dpi = 110, message = F, results = 'hide'}
+par(mar = c(0, 0, 0.1, 0.1), oma = c(4, 4, 0, 0))
+a <- flowField(deriv = LVFRDD, xlim = c(-0.01, 3), ylim = c(-0.01, 3), parameters = parm.vals, y = init, add = F, points = 20, las = 1, xaxs = "i", yaxs = "i")
+a <- nullclines(deriv = LVFRDD, parameters = parm.vals, xlim = c(-0.01, 3), ylim = c(-0.01, 3), add = T, lwd = 2, col = c("red", "blue"), add.legend = F)
+mtext(side = 1, text = bquote(R), line = 2.5)
+mtext(side = 2, text = bquote(C), line = 2.5, las = 1)
+```
+
+---
+# Lotka-Volterra with FR & DD
+
+The predator isocline could increase or decrease
+
+```{r LVFRDD, echo = F, message = FALSE, eval = F}
+times <- seq(from = 0, to = 120, by = 0.1)
+init <- c(1, 0.51)
+parm.vals <- c(r = 0.5, a = 0.25, b = 1.5, m = 0.75, c = 0.5, g = 1, K = 2.5)
+m.seq <- seq(from = 0.25, to = 1.1, length.out = 1000)
+
+saveVideo({
+  n.frames <- length(m.seq)
+  total.time <- 10
+  ani.options(interval = total.time/n.frames, nmax = n.frames)
+
+  for (i in 1:n.frames) {
+  parm.vals["m"] <- m.seq[i]
+  LVFRDD.out <- ode(y = init, fun = LVFRDD, parms = parm.vals, times = times)
+
+  par(mar = c(4.5, 4.5, 0.2, 0.2), oma = rep(0, 4), mfrow = c(1, 2))
+  plot(x = LVFRDD.out[,1], y = LVFRDD.out[,2], lwd = 2, las = 1, xlab = "Time", ylab = "Density", type = "l", ylim = c(0, 3), xlim = c(0, max(LVFRDD.out[,1])), col = "#0000FFFF")
+  lines(x = LVFRDD.out[,1], y = LVFRDD.out[,3], lwd = 2, col = "red")
+a <- flowField(deriv = LVFRDD, xlim = c(-0.01, 3), ylim = c(-0.01, 3), parameters = parm.vals, y = init, add = F, points = 20, las = 1, xaxs = "i", yaxs = "i", col.lab = "white")
+a <- nullclines(deriv = LVFRDD, parameters = parm.vals, xlim = c(-0.01, 3), ylim = c(-0.01, 3), add = T, lwd = 2, col = c("red", "blue"), add.legend = F)
+points(x = init[1], y = init[2], pch = 16, cex = 1.25)
+lines(x = LVFRDD.out[,2], y = LVFRDD.out[,3], lwd = 2)
+mtext(side = 1, text = bquote(R), line = 2.5)
+mtext(side = 2, text = bquote(C), line = 2.5, las = 1)
+  }
+
+  }, video.name = "Wk10_PredatorPreyCont_files/LVFRDD.mp4", ani.width = 800, ani.height = 400, ani.dev = function(...){png(res=100,...)}
+)
+```
+
+<video width="800" height="400" controls loop>
+  <source src="Wk10_PredatorPreyCont_files/LVFRDD.mp4" type="video/mp4">
+</video>
+
+---
+# Lotka-Volterra with FR & DD
+
+The prey isocline changing by increasing the equilibrium value, $K$
+
+```{r LVFRDDK, echo = F, message = FALSE, eval = F}
+times <- seq(from = 0, to = 120, by = 0.1)
+init <- c(1, 0.51)
+parm.vals <- c(r = 0.5, a = 0.25, b = 1.5, m = 0.85, c = 0.5, g = 1, K = 2.5)
+K.seq <- seq(from = 0.9, to = 5, length.out = 1000)
+
+saveVideo({
+  n.frames <- length(K.seq)
+  total.time <- 10
+  ani.options(interval = total.time/n.frames, nmax = n.frames)
+
+  for (i in 1:n.frames) {
+  parm.vals["K"] <- K.seq[i]
+  LVFRDD.out <- ode(y = init, fun = LVFRDD, parms = parm.vals, times = times)
+
+  par(mar = c(4.5, 4.5, 0.2, 0.2), oma = rep(0, 4), mfrow = c(1, 2))
+  plot(x = LVFRDD.out[,1], y = LVFRDD.out[,2], lwd = 2, las = 1, xlab = "Time", ylab = "Density", type = "l", ylim = c(0, 3), xlim = c(0, max(LVFRDD.out[,1])), col = "#0000FFFF")
+  lines(x = LVFRDD.out[,1], y = LVFRDD.out[,3], lwd = 2, col = "red")
+  legend(x = "topright", legend = paste0("K = ", sprintf("%.2f", parm.vals["K"])), bg = "#FFFFFFAA")
+a <- flowField(deriv = LVFRDD, xlim = c(-0.01, 3), ylim = c(-0.01, 3), parameters = parm.vals, y = init, add = F, points = 20, las = 1, xaxs = "i", yaxs = "i", col.lab = "white")
+a <- nullclines(deriv = LVFRDD, parameters = parm.vals, xlim = c(-0.01, 3), ylim = c(-0.01, 3), add = T, lwd = 2, col = c("red", "blue"), add.legend = F)
+points(x = init[1], y = init[2], pch = 16, cex = 1.25)
+lines(x = LVFRDD.out[,2], y = LVFRDD.out[,3], lwd = 2)
+mtext(side = 1, text = bquote(R), line = 2.5)
+mtext(side = 2, text = bquote(C), line = 2.5, las = 1)
+  }
+
+  }, video.name = "Wk10_PredatorPreyCont_files/LVFRDD_K.mp4", ani.width = 800, ani.height = 400, ani.dev = function(...){png(res=100,...)}
+)
+```
+
+<video width="800" height="400" controls loop>
+  <source src="Wk10_PredatorPreyCont_files/LVFRDD_K.mp4" type="video/mp4">
+</video>
