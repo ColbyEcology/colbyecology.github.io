@@ -173,7 +173,7 @@ pre code {
 <p>The proportion of <em>Daphnia</em> infected duing a period of 15 days is, in sequence, 0.01, 0.03, 0.03, 0.1, 0.14, 0.3, 0.3, 0.58, 0.7, 0.7, 0.92, 0.92, 0.96, 0.97, 099, 0.99. Plot the time series.</p>
 <hr />
 <p>Here, copy this:<br />
-<code>infected &lt;- c(0.01, 0.03, 0.03, 0.1, 0.14, 0.3, 0.3, 0.58, 0.7, 0.7, 0.92, 0.92, 0.96, 0.97, 099, 0.99)</code><br />
+<code>infected &lt;- c(0.01, 0.03, 0.03, 0.1, 0.14, 0.3, 0.3, 0.58, 0.7, 0.7, 0.92, 0.92, 0.96, 0.97, 0.99, 0.99)</code><br />
 Make sure when you <code>plot()</code> that you write an <code>x =</code> argument that corresponds to a vector of time (i.e., days).</p>
 </div>
 <div id="section-1" class="section level2">
@@ -186,7 +186,7 @@ Make sure when you <code>plot()</code> that you write an <code>x =</code> argume
 <h2>7.6</h2>
 <p>Using the value of <span class="math inline">\(\beta\)</span> you estimated in exercise 7.5, calculate the expected values using the integrated form of equation 1, and plot them along with the time series of exercise 7.4.</p>
 <hr />
-<p>Plot the timeseries from 7.4 and use <code>lines()</code> to add lines over the data. You know <span class="math inline">\(I_0\)</span>, which is the initial population size (in this case, the proportion of the population that is infectious). <span class="math inline">\(t\)</span> would be the time vector that you used in 7.4. Just change <span class="math inline">\(\beta\)</span> until your eyeballs think you have a good fit.</p>
+<p>Once you have solved for <span class="math inline">\(\beta\)</span> in 7.5, then you can plug in your values: you have <span class="math inline">\(I_0\)</span> (a scalar), <span class="math inline">\(I_t\)</span> (a vector), and <span class="math inline">\(t\)</span> (a vector). You’ll notice that you will calculate the number of <span class="math inline">\(\beta\)</span>s for the length of your vectors. Just take the average (<code>mean()</code> in R) and you will get an average <span class="math inline">\(beta\)</span> (transmission rate). Then plot the data from 7.4 and add the curve 7.5 with your estimated <span class="math inline">\(\beta\)</span> that you just calculated.</p>
 </div>
 <div id="section-3" class="section level2">
 <h2>7.7</h2>
