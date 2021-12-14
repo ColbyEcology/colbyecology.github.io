@@ -396,7 +396,7 @@ div.tocify {
 <ol style="list-style-type: decimal">
 <li>In your setup at the beginning of the document, please hide your code (I want to read words and not wade through code), unless you explicitly wish to show it. To do so use <code>knitr::opts_chunk$set(echo = FALSE)</code> in the setup chunk in the beginning of the document. Every chunk of code you wish to be in the document, simply write <code>echo = TRUE</code> in the chunk options.<br />
 </li>
-<li>To include a figure from your original paper, save it as an image file where your .Rmd file is saved, and call it via html; e.g., <code>&lt;img src=&quot;img.jpg&quot; style=&quot;width:500px;height:500px;&quot;&gt;</code> You can remove the <code>style</code> options and it will appear in your knitted html document without resizing.</li>
+<li>To include a figure from your original paper, save it as an image file where your .Rmd file is saved, and call it via html; e.g., <code>&lt;img src=&quot;img.jpg&quot; style=&quot;width:500px;height:500px;&quot;&gt;</code> You can remove the <code>style</code> options and it will appear in your knitted html document without resizing. Like <span class="math inline">\(\LaTeX\)</span> code, this html code works outside of the R chunk.</li>
 </ol>
 <p>But most importantly, I ask that your paper is structured in the following manner:</p>
 <ol style="list-style-type: decimal">
