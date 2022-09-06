@@ -23,21 +23,12 @@ Email: cmmoore
 Office: Olin 216  
 Office phone: 207-859-5746  
 
-### Teaching assistant information
-Joseph Savage  
-Email: jdsava22
-
 ### Meetings for discussions and labs
 Labs: M, 1—4:00 PM, in Davis 308  
 Discussions: TR, 11:00 AM—12:15 PM, in Miller 205
 
 ### Office hours
-M: 4–5 PM   
-R: 3–5 PM  
-
-### TA hours:
-R: 2–4 PM  
-F: 2–4 PM
+TBA
 
 ### Text
 * Required: *Population ecology: from first principles*, 2<sup>nd</sup> ed., 2013, by Vandermeer and Goldberg, Princeton University Press  
