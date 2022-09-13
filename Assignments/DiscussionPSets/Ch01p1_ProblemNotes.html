@@ -366,15 +366,21 @@ pre code {
 </div>
 
 
-<div id="chapter-1-pt.-1-problem-notes" class="section level1">
-<h1>Chapter 1, pt. 1 Problem Notes</h1>
-<p>1.1. Calculate by hand—say 5—enter manually (e.g., using
-<code>c()</code>) and plot in R.</p>
-<p>1.2. Use function <code>segments()</code> to draw a line from the
-first to the last point. The arguments are: <code>x0 =</code>,
-<code>y0 =</code>, <code>x1 =</code>, and <code>y1 =</code>. The
-argumetns with 0s assign the x and y coordinates of the beginning of the
-line; the 1s, the end.</p>
+<p>1.1. Calculate by hand over, say 5 time steps, and enter manually
+(e.g., using <code>c()</code>) and <code>plot(x = , y = )</code> in
+R.</p>
+<p>1.2. An arithmetic operation over a vector applies to every element
+of that vector. For instance, from yesterday, <code>1:4 + 4 =</code>
+<code>5, 6, 7, 8</code>. To find a logarithm, use function
+<code>log(x = , base = )</code> where <code>x</code> is whatever data
+structure you want to take the log of, and the <code>base</code> what
+base you want to use. Use function <code>segments()</code> to draw a
+line from the first to the last point. The arguments are:
+<code>x0 =</code>, <code>y0 =</code>, <code>x1 =</code>, and
+<code>y1 =</code>. The arguments with 0s assign the x and y coordinates
+of the beginning of the line; the 1s, the end. To describe “the nature
+of the function,” please describe what the slope and intercept(s?)
+mean.</p>
 <p>1.3. Do this by hand, but show a step or 2. To write math in R
 Markdown, use dollar signs. For example,<br />
 <code>$1^2 + \beta - \lambda = 5$</code>, or<br />
@@ -385,10 +391,13 @@ and<br />
 <span class="math inline">\(\frac{1}{2} \times N_{t - 1} &gt; \log
 (4)\)</span>, respectively.</p>
 <p>1.4. None.</p>
-<p>1.5. Show a step or 2 in R.</p>
+<p>1.5. Show a steps.</p>
 <p>1.6. Use the equation: <span class="math inline">\(N(t) = N(0)\exp
 (rt)\)</span> (equation 10 in the next section), for <span class="math inline">\(t = 1–10\)</span> in R. Make <span class="math inline">\(t\)</span> a sequence with small steps (say,
-0.01).</p>
+0.01). The function <code>seq()</code> will make a sequence. Use
+<code>?seq</code> in the console to bring up the documentation for any
+function and read §Arguments to see what arguments <code>seq()</code>
+takes.</p>
 <p>1.7. If you have have a vector and you want to subtract an element
 from the follow element (e.g., the next time step from a previous one),
 that means you want to subract the first from the 2nd, the 2nd from the
@@ -406,7 +415,6 @@ verctor was called <code>timestep</code>, if you use
 write a new vector after removing the last one. (If you subset and use a
 minus in front of a number, it will exclude it; <code>length()</code>
 returns the number of elements in a vector.)</p>
-</div>
 
 
 
