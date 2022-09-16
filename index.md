@@ -96,5 +96,5 @@ To learn more about sexual misconduct or report an incident, visit
 <!---
 compiles page to pdf
 pandoc index.md --pdf-engine=xelatex -V geometry:margin=1in -o Misc/Syllabus.pdf
+<small><a href="./Misc/Syllabus.pdf" download>Download this page as a .pdf, last updated 2021 September 08</a></small>
 --->
-<small><a href="./Misc/Syllabus.pdf" download>Download this page as a .pdf, last updated 2021 September 08</a></small> 
