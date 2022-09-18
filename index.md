@@ -34,7 +34,18 @@ TBA
 * Required: *Population ecology: from first principles*, 2<sup>nd</sup> ed., 2013, by Vandermeer and Goldberg, Princeton University Press  
 * Optional: *A primer of ecology with R*, 2009, by Stevens, Springer Press
 
-### Assessment and grade assignment
+### Assignment and assessment
+#### Assignments
+- **Problem sets**: Problem sets are exercises to give students practice working through and learning how to solve problems in population modeling outside of class. They are derived from the textbook, and supplemented by notes on the schedule. They are due Fridays by 5 PM of every week.
+- **Quizzes**: Quizzes are in-class assignments to give students practice retrieval and processing of information from the week's reading. Every Tuesday there will be a quiz, with roughly five multiple choice problems, based on the forthcoming week's material. You will first take it individually, then with a group.
+- **Lab reports/experiments**: The lab reports are documents written as logs as you learn methods in R in lab. The are all strictly in-lab work.
+- **Remodeling project**: This is the big project of the semester where you will choose a scientific paper with an ecological model and recreate it. Throughout the semester you will give several small presentations on the paper and model. The first presentation will be an overview of the paper, the second presentation will be on the methods used by the authors and you, the third presentation will be on the results of the Remodeling attempt, and there will be a final paper summarizing the project.
+- **Participation**: Participation is necessary for this course to succeed.
+
+#### Assessments
+
+
+<!---
 
 | Assignments          | Each  | No.  | Proportion of the course |
 | :------------------- | :---: | :--: | :----------------------: |
@@ -46,11 +57,8 @@ TBA
 | Remodeling project   | 0.240 |  1   |           0.240          |
 | Participation        | 0.025 |  1   |           0.025          |
 
-- **Problem sets**: Exercises from the text. They are due Fridays by 5 PM of every week.
-- **Quizzes**: Every Tuesday there will be a quiz, with 5 multiple choice problems, based on the week's material. You will first take it individually, then with a group.
-- **Lab reports/experiments**: The Lab reports are in-lab work, mostly focused on programming in R. The Lab experiments are based on lab experiments and will be full write-ups.
-- **Remodeling project**: This is the big project of the semester where you will choose a scientific paper with an ecological model and recreate it. Throughout the semester you will give several small presentations on the paper and model. The first presentation will be an overview of the paper (0.03), the second presentation will be on the methods used by the authors and you (0.05), the third presentation will be on the results of the Remodeling attempt (0.07), and there will be a final paper summarizing the project (0.09).
-- **Participation**: Participation is necessary for this course to succeed.
+
+--->
 
 ### Attendance
 Role will not be taken, but regular attendance is necessary for you to succeed in this course.
