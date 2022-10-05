@@ -28,7 +28,8 @@ Labs: M, 1—4:00 PM, in Davis 308
 Discussions: TR, 11:00 AM—12:15 PM, in Miller 205
 
 ### Office hours
-TBA
+T: 8–10 AM    
+R: 3–5 PM    
 
 ### Text
 * Required: *Population ecology: from first principles*, 2<sup>nd</sup> ed., 2013, by Vandermeer and Goldberg, Princeton University Press  
