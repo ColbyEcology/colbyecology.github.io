@@ -24,16 +24,16 @@ Office: Olin 216
 Office phone: 207-859-5746  
 
 ### Meetings for discussions and labs
-Labs: M, 1—4:00 PM, in Davis 308  
-Discussions: TR, 11:00 AM—12:15 PM, in Miller 205
+Labs: M, 1—4:00 PM, [SOMEWHERE]
+Discussions: TR, 11:00 AM—12:15 PM, [SOMEWHERE]
 
 ### Office hours
-T: 8–10 AM    
-R: 3–5 PM    
+[SOMEDAY]: [SOMETIME]
 
 ### Text
+The first text is available digitally for free through the library. The second is (now!) available for free on the World Wide Web. You can find links to them on this site's sidebar.
 * Required: *Population ecology: from first principles*, 2<sup>nd</sup> ed., 2013, by Vandermeer and Goldberg, Princeton University Press  
-* Optional: *A primer of ecology with R*, 2009, by Stevens, Springer Press
+* Required: *A primer of ecology with R*, 2023, by Stevens
 
 ### Assignment and assessment
 #### Assignments
