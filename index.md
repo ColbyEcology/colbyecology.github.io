@@ -39,12 +39,12 @@ The first text is available digitally for free through the library. The second i
 #### Assignments
 - **Problem sets**: Problem sets are exercises to give students practice working through and learning how to solve problems in population modeling outside of class. They are derived from the textbook, and supplemented by notes on the schedule. They are due Fridays by 5 PM of every week.
 - **Quizzes**: Quizzes are in-class assignments to give students practice retrieval and processing of information from the week's reading. Every Tuesday there will be a quiz, with roughly five multiple choice problems, based on the forthcoming week's material. You will first take it individually, then with a group.
-- **Lab reports/experiments**: The lab reports are documents written as logs as you learn methods in R in lab. The are all strictly in-lab work.
+- **Lab assignments**: The lab assignments are documents written as logs as you learn methods in R in lab. The are all strictly in-lab work.
 - **Remodeling project**: This is the big project of the semester where you will choose a scientific paper with an ecological model and recreate it. Throughout the semester you will give several small presentations on the paper and model. The first presentation will be an overview of the paper, the second presentation will be on the methods used by the authors and you, the third presentation will be on the results of the Remodeling attempt, and there will be a final paper summarizing the project.
 - **Participation**: Participation is necessary for this course to succeed.
 
-#### Assessments
-
+#### Assessment
+During the first class we will discuss the model of assessment, which will either be narrative or quantified. The former will take the form of meeting regularly and discussing your progress towards learning; the latter will be a traditional point system. At the end of the course I do need to assign you a grade. If we decide upon the narrative model we will need to decide how that will be done.
 
 <!---
 
