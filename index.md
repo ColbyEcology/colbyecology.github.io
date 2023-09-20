@@ -24,11 +24,12 @@ Office: Olin 216
 Office phone: 207-859-5746  
 
 ### Meetings for discussions and labs
-Labs: M, 1—4:00 PM, [SOMEWHERE]  
-Discussions: TR, 11:00 AM—12:15 PM, [SOMEWHERE]
+Labs: M, 1—4:00 PM, Davis 308  
+Discussions: TR, 11:00 AM—12:15 PM, Miller 205
 
 ### Office hours
-SOMEDAY: SOMETIME
+M: 4–5 PM  
+W: 4–5 PM
 
 ### Text
 The first text is available digitally for free through the library. The second is (now!) available for free on the World Wide Web. You can find links to them on this site's sidebar.
