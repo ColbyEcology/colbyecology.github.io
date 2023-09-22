@@ -558,8 +558,8 @@ Use the numerical solver you used in a. above, but in the
 </ol>
 <pre class="r"><code> logisitc_diff &lt;- function(time, N, parms) {
     with(as.list(c(N, parms)), {
-    N_disc &lt;-  rd*N*(1 - alpha*N) + N
-    return(list(c(N_disc)))
+    Ntp1 &lt;-  rd*N*(1 - alpha*N) + N
+    return(list(c(Ntp1)))
     })
   }
 
