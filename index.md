@@ -24,12 +24,11 @@ Office: Olin 216
 Office phone: 207-859-5746  
 
 ### Meetings for discussions and labs
-Labs: M, 1—4:00 PM, Davis 308  
-Discussions: TR, 11:00 AM—12:15 PM, Miller 205
+Discussions: TR, 09:30 AM—10:45 AM, [Miller 205]  
+Labs: R, 1—4:00 PM, [Davis 201]
 
 ### Office hours
-M: 4–5 PM  
-W: 4–5 PM
+By appointment. This is my only course I'm teaching this semester, so just email me.
 
 ### Text
 The first text is available digitally for free through the library. The second is (now!) available for free on the World Wide Web. You can find links to them on this site's sidebar.
@@ -40,7 +39,7 @@ The first text is available digitally for free through the library. The second i
 #### Assignments
 - **Problem sets**: Problem sets are exercises to give students practice working through and learning how to solve problems in population modeling outside of class. They are derived from the textbook, and supplemented by notes on the schedule. They are due Fridays by 5 PM of every week.
 - **Quizzes**: Quizzes are in-class assignments to give students practice retrieval and processing of information from the week's reading. Every Tuesday there will be a quiz, with roughly five multiple choice problems, based on the forthcoming week's material. You will first take it individually, then with a group.
-- **Lab assignments**: The lab assignments are documents written as logs as you learn methods in R in lab. The are all strictly in-lab work.
+- **R notebook**: The lab assignments are documents written as logs as you learn methods in R in lab. The are all strictly in-lab work.
 - **Remodeling project**: This is the big project of the semester where you will choose a scientific paper with an ecological model and recreate it. Throughout the semester you will give several small presentations on the paper and model. The first presentation will be an overview of the paper, the second presentation will be on the methods used by the authors and you, the third presentation will be on the results of the Remodeling attempt, and there will be a final paper summarizing the project.
 - **Participation**: Participation is necessary for this course to succeed.
 
@@ -93,7 +92,7 @@ Academic dishonesty is a serious offense against the college. Sanctions for acad
 
 ### Athletic participation
 
-While Colby College is supportive of athletic participation by its students, academics takes priority over athletics. Both NCAA and Colby rules prohibit missing class for practices. In the case of overlapping commitments between class and athletic competitions, the student must meet with the professor as soon as possible to discuss these overlaps. The student may request permission to miss class and make up the missed work; the instructor has final authority either to grant or to withhold permission
+While Colby College is supportive of athletic participation by its students, academics takes priority over athletics. Both NCAA and Colby rules prohibit missing class for practices. In the case of overlapping commitments between class and athletic competitions, the student must meet with the professor as soon as possible to discuss these overlaps. The student may request permission to miss class and make up the missed work; the instructor has final authority either to grant or to withhold permission.
 
 ### Sexual misconduct/Title IX statement
 
