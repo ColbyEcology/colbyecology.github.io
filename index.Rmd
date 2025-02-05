@@ -1,8 +1,13 @@
 ---
-title: "BI382"
-author: "Christopher Moore"
-date: "2025-02-05"
-output: html_document
+title: "Population Modeling (BI/ES382)"
+output: 
+  html_document:
+  toc: true
+  toc_float: true
+  toc_collapsed: true
+toc_depth: 3
+number_sections: true
+theme: lumen
 ---
 
 ```{r setup, include=FALSE}
