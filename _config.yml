@@ -1,0 +1,25 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+# Permalinks
+permalink:        pretty
+plugins: [jekyll-paginate, jekyll-gist]
+
+# Setup
+title:            Population Modeling @ Colby College
+description:      'A course on mathematical and computational population ecology'
+url:              https://colbyecology.github.io
+baseurl:          https://colbyecology.github.io/
+
+author:
+  name:           'Chris Moore'
+  url:            https://mutualismecology.com
+
+paginate:         5
+
+# Custom vars
+version:          F23
+
+github:
+  repo:           https://github.com/poole/hyde
