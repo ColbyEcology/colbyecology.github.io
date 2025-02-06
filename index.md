@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Welcome to Population Modeling (BI382) at Colby College"
+title: "Welcome to Population Modeling (BI/ES382) at Colby College"
 ---
 ### Course description
 Population Modelling is a course that is designed to help students learn theory and methods in mathematical and computational ecology. Collectively, these types quantitative approaches are central to the science of ecology for understanding, predicting, and making inferences about ecological patterns and processes. Both classic and contemporary topics will be covered, with an emphasis on using modern tools to analyze and present theory and data.
@@ -24,15 +24,14 @@ Office: Olin 216
 Office phone: 207-859-5746  
 
 ### Meetings for discussions and labs
-Labs: M, 1—4:00 PM, Davis 308  
-Discussions: TR, 11:00 AM—12:15 PM, Miller 205
+Discussions: TR, 11:00 AM—12:15 PM, Miller 205  
+Labs: R, 1—4:00 PM, Davis 201
 
 ### Office hours
-M: 4–5 PM  
-W: 4–5 PM
+TBA
 
 ### Text
-The first text is available digitally for free through the library. The second is (now!) available for free on the World Wide Web. You can find links to them on this site's sidebar.
+The first text is available digitally for free through the library. The second is available for free on the World Wide Web. You can find links to them on this site's sidebar.
 * *Population ecology: from first principles*, 2<sup>nd</sup> ed., 2013, by Vandermeer and Goldberg, Princeton University Press  
 * *A primer of ecology with R*, 2023, by Stevens
 
@@ -40,7 +39,7 @@ The first text is available digitally for free through the library. The second i
 #### Assignments
 - **Problem sets**: Problem sets are exercises to give students practice working through and learning how to solve problems in population modeling outside of class. They are derived from the textbook, and supplemented by notes on the schedule. They are due Fridays by 5 PM of every week.
 - **Quizzes**: Quizzes are in-class assignments to give students practice retrieval and processing of information from the week's reading. Every Tuesday there will be a quiz, with roughly five multiple choice problems, based on the forthcoming week's material. You will first take it individually, then with a group.
-- **Lab assignments**: The lab assignments are documents written as logs as you learn methods in R in lab. The are all strictly in-lab work.
+- **Lab notebooks**: The lab notebooks are R markdown documents written as logs as you learn methods in R in lab. The are all strictly in-lab work.
 - **Remodeling project**: This is the big project of the semester where you will choose a scientific paper with an ecological model and recreate it. Throughout the semester you will give several small presentations on the paper and model. The first presentation will be an overview of the paper, the second presentation will be on the methods used by the authors and you, the third presentation will be on the results of the Remodeling attempt, and there will be a final paper summarizing the project.
 - **Participation**: Participation is necessary for this course to succeed.
 

@@ -19,7 +19,7 @@ author:
 paginate:         5
 
 # Custom vars
-version:          F23
+version:          S25
 
 github:
   repo:           https://github.com/poole/hyde
