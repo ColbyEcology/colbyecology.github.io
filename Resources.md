@@ -9,7 +9,7 @@ title: "Resources"
 Chris' markdown quick guide: [link](../Misc/CMsMarkdown){:target="_blank"}
 
 #### LaTeX
-David Richeson's guide to LaTeX (2-page .pdf): [link](https://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf){:target="_blank"}
+LaTeX guide developed by https://github.com/Fechin: [link](https://quickref.me/latex.html){:target="_blank"}
 
 ## R Markdown
 R Markdown Cheat Sheet guide (2-page .pdf): [link](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf){:target="_blank"}

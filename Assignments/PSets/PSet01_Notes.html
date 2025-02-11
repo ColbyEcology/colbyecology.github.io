@@ -463,41 +463,60 @@ the inference we just made.</p>
 (Photo: <a href="https://www.joelsartore.com/">Joel Sartore</a>)</p>
 <p>Data and some verbiage on ERBs is respectfully used and adapted from
 <a href="https://amphibiaweb.org/cgi/amphib_query?where-genus=Plethodon&amp;where-species=cinereus">amphibiaweb.org</a>.</p>
-<!---## Chapter 2. Population: the central concept
-2.1. 758 elk spend 3 months each winter in a 5 hectare feed lot. These elk are known to range over a watershed of 1230 hectares. What is the absolute size of the population and what is its density?
-
-2.2. A scientist sampled the white grubs in a 3.4 hectare pasture by taking 200 randomly located 1 decimeter (= 10 square centimeters) soil cores. He counted 7564 white grubs in these samples. Calculate the density of white grubs per square meter of soil, per hectare, and the absolute population in the pasture.
-
-2.3. The elk population discussed above produced 58 calves in 1990 but only 22 were alive by 1990 December 30. In addition, 37 yearling and older elk died during 1990. What was the per capita birth and death rate and the logarithmic net per capita rate of change (R) over the year? Is this elk population increasing?
-
-**Note**: Remember that elk have sexes, so let's assume that the female:male is 1:1.
-## Chapter 3. The first principle: exponential growth
-3.1. If you have \$10,000 in the bank at 10% annual interest rate, how much will you have in 10 years if the interest is compounded at the end of each year? What is the relationship between the interest rate and population parameters $G$, $R$, $B$, and $D$?
-
-3.2. Simulate the dynamics of a population for 10 years using equation (3.13) when the initial density is 10 individuals, the per capita rate of change is $R = 0.8$ and the standard deviation is zero. Plot the trajectory on both arithmetic and logarithmic scales.
-
-**Note 1**: We will be spending a lot of time on this next week. For now, here is the short of it for you to adapt to this question:
-
-```r
-# Create an empty vector for 20 years
-  years <- 20
-  year_vec <- 1:years
-  N_vec <- rep(x = NA, times = years)
+</div>
+<div id="bide-lambda-and-introducing-latex-for-writing-math" class="section level2">
+<h2>4. BIDE, lambda, and introducing <span class="math inline">\(\LaTeX\)</span> for writing math</h2>
+<p>The canonical equation describing population change is the
+<em>BIDE</em> equation: <span class="math display">\[N_{t+1} = N_t +
+bN_t - dN_t + I - E.\]</span> That is, the population at the next
+timesetp, <span class="math inline">\(N_{t+1}\)</span> is a function of
+the current population size, <span class="math inline">\(N_t\)</span>,
+plus the number of births per individual, <span class="math inline">\(bN_t\)</span>, plus the immigrants into the
+population, <span class="math inline">\(I\)</span>, and minus the number
+of emigrants that leave the population, <span class="math inline">\(E\)</span>. For the sake of this class—and most
+population-level studies—we ignore migration (it has a time and place,
+and we’ll touch on it a bit in this class). So, what we’re left with is:
+<span class="math display">\[N_{t+1} = N_t + bN_t - dN_t.\]</span></p>
+<p>Now, compare this with equation (3) in your book. Please use algebra
+to determine what the finite rate of growth, <span class="math inline">\(\lambda\)</span>, is equal to from the last
+equation (<span class="math inline">\(N_{t+1} = N_t + bN_t -
+dN_t\)</span>). Write what you did and the math using <span class="math inline">\(\LaTeX\)</span>. Do this by writing your math
+between dollar signs; e.g., <code>$N_{t+1} = N_t + bN_t - dN_t$</code>
+is how I wrote our last equation. It’ll only be one or two steps, but I
+want you to play around with <span class="math inline">\(\LaTeX\)</span>
+to start writing math.</p>
+</div>
+<div id="simulating-and-graphing-discrete-time-density-independent-growth" class="section level2">
+<h2>5. Simulating and graphing discrete-time density-independent
+growth</h2>
+<p>Below is how one would simulate population growth starting with 42
+individuals over 20 years with a finite rate of growth as 1.1. We use
+what’s called a “for loop” to iterate an operation. In this case, we are
+computing <code>Ntp1</code>, abbreviated for <span class="math inline">\(N_{t+1}\)</span>, from <code>Nt</code> times the
+finite rate of growth, <span class="math inline">\(\lambda\)</span>.</p>
+<pre class="r"><code># Create an empty vector for 20 years
+  years &lt;- 20
+  year_vec &lt;- 1:years
+  N_vec &lt;- rep(x = NA, times = years)
 # Set the initial population size at the first year
-  N_vec[1] <- 42
+  N_vec[1] &lt;- 42
 # Set the parameters
-  R <- 1.01
-  s <- 1
-# Write a "loop" that iterates with "i", in this case, taking the value of every year
+  lambda &lt;- 1.1
+# Write a &quot;loop&quot; that iterates with &quot;i&quot;, in this case, taking the value of every year
   for (i in 2:years) {
-    Ntm1 <- N_vec[i - 1]
-    Z <- rnorm(n = 1, mean = 0, sd = s)
-    Nt <- Ntm1*exp(R + Z)
-    N_vec[i] <- Nt
+    Nt &lt;- N_vec[i - 1]
+    Ntp1 &lt;- lambda*Nt
+    N_vec[i] &lt;- Ntp1
   }
-```
---->
-<p>(Final problem posted later tonight, Feb. 10)</p>
+# Plot the timeseries
+  plot(x = year_vec, y = N_vec, pch = 19, las = 1, xlab = &quot;Time (years)&quot;, ylab = &quot;Density (N)&quot;)</code></pre>
+<p>For this problem, please modify the code above to plot three
+different values of the finite rate of growth, <span class="math inline">\(\lambda = 1.1, 0.55, \text{and}~1.65\)</span>.
+Please plot all three values on the same plot by, for each subsequent
+simulation, use <code>points()</code> to add the points.
+<code>points()</code> takes many of the same arguments as
+<code>plot()</code>; e.g., <code>x =</code>, <code>y =</code>,
+<code>col =</code>, <code>pch =</code>, etc.</p>
 </div>
 <div id="references" class="section level2">
 <h2>References</h2>
