@@ -18,3 +18,11 @@ R Markdown Cheat Sheet guide (2-page .pdf): [link](https://www.rstudio.com/wp-co
 R Markdown Reference guide (4-page .pdf): [link](http://www.utstat.toronto.edu/reid/sta2201s/rmarkdown-reference.pdf){:target="_blank"}
 
 A more thorough introcution on R Markdown is *R Markdown: The Definitive Guide* by Xie et al.: [link](https://bookdown.org/yihui/rmarkdown/){:target="_blank"}
+
+## Ways to remember the quadratic equation
+- [Rolling in the deep](https://youtu.be/1oSc-TpQqQI?si=QQ3yjkIvyyJhLLS3&t=60) by Adele
+- [Bad romance](https://www.youtube.com/watch?v=ZBVYahon6EY) by Lady Gaga
+- Harmonized [Pop goes the weasel](https://www.youtube.com/watch?v=VOXYMRcWbF8)
+- [Pop goes the weasel](https://www.youtube.com/watch?v=2lbABbfU6Zc)
+- [Row row row your boat](https://www.youtube.com/watch?v=HRcj9slciqM)
+- [Hotline Bling](https://www.youtube.com/watch?v=MOVBlvJVEhI) by Drake, R.I.P.
